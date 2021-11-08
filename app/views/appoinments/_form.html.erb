@@ -1,0 +1,17 @@
+<%= form_with(model: appoinment) do |form| %>
+  <% if appoinment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(appoinment.errors.count, "error") %> prohibited this appoinment from being saved:</h2>
+
+      <ul>
+        <% appoinment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

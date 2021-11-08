@@ -1,0 +1,22 @@
+<%= form_with(model: industry) do |form| %>
+  <% if industry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(industry.errors.count, "error") %> prohibited this industry from being saved:</h2>
+
+      <ul>
+        <% industry.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+  <%= form.text_field :name %>
+  <br>
+  <%= form.email_field :email %>
+  <br>
+  <%= form.collection_select(:sector_ids, Sector.all, :id, :name, { :prompt => "Select Sectors" }, { multiple: true }) %>
+  <%= form.submit %>
+  </div>
+<% end %>
