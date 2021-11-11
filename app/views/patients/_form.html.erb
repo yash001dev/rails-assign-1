@@ -16,7 +16,7 @@
   <br>
   <%= form.email_field :email %>
   <br>
-  <%= form.collection_select(:appointment_ids, Appointment.all, :id, :appoinment_date, { :prompt => "Select Appointments" }, { multiple: true }) %>
+  
   <%= form.submit %>
   </div>
 <% end %>

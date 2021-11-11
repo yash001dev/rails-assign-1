@@ -23,6 +23,7 @@ class PhysiciansController < ApplicationController
 
   # POST /physicians or /physicians.json
   def create
+    debugger
     @physician = Physician.new(physician_params)
 
     respond_to do |format|
@@ -67,6 +68,6 @@ class PhysiciansController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def physician_params
-    params.require(:physician).permit(:name, :email, appointment_ids: [])
+    params.require(:physician).permit(:name, :email)
   end
 end
