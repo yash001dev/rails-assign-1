@@ -13,8 +13,9 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
-    @appointments = Appointment.all
+    # @appointments = Appointment.all
     @patient = Patient.new
+    @patient.appointments.new
   end
 
   # GET /patients/1/edit
@@ -24,7 +25,6 @@ class PatientsController < ApplicationController
   # POST /patients or /patients.json
   def create
     @patient = Patient.new(patient_params)
-
     respond_to do |format|
       if @patient.save
         format.html { redirect_to @patient, notice: "Patient was successfully created." }
@@ -67,6 +67,6 @@ class PatientsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def patient_params
-    params.require(:patient).permit(:name, :email, appoinment_ids: [])
+    params.require(:patient).permit(:name, :email)
   end
 end
