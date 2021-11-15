@@ -1,0 +1,28 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Appointments</h1>
+<%= link_to "Add Appointment", new_physician_appointment_path(@physician), class: "ui button blue inverted" %>
+
+<table>
+  <thead>
+    <th>Appointment Date</th>
+    <th>Patient Email</th>
+    <th>Patient Name</th>
+    <th>Remove</th>
+  </thead>
+
+  <tbody>
+    <% @appointments.each do |appointment| %>
+      <tr>
+        <td><%= appointment.appoinment_date.strftime("%a, %b %d, %Y") %></td>
+        <td><%= appointment.patient.email %></td>
+        <td><%= appointment.patient.name %></td>
+        <td><%= button_to "Cancel", physician_appointment_path(appointment.physician_id, appointment.id), method: :delete, class: "ui button red inverted" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+

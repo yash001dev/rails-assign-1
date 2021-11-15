@@ -1,0 +1,17 @@
+
+
+  <div class="actions">
+    <%= form_with(model: [@physician, @appointment], local: true) do |f| %>
+      <%= f.label :patient %>
+        <%= f.select :patient_id, @patients.collect { |p| [p.email, p.id] } %>
+      <br />
+      <%= f.label :appoinment_date %>
+        <%= f.date_field :appoinment_date %>
+      <br />
+      
+        <br />
+        <br />
+      <%= f.submit %>
+      <% end %>
+  </div>
+

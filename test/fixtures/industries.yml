@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: industries
+#
+#  id                  :integer          not null, primary key
+#  name                :string
+#  email               :string
+#  registration_number :string
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+one:
+  name: MyString
+  email: MyString
+  registration_number: MyString
+
+two:
+  name: MyString
+  email: MyString
+  registration_number: MyString
