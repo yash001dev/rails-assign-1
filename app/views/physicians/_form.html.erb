@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="actions">
-    <%= form.submit %>
+   <%= form.text_field :name %>
+  <br>
+  <%= form.email_field :email %>
+  <br>
+  <%= form.submit %>
   </div>
 <% end %>
