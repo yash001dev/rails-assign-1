@@ -1,7 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: %i[ show edit update destroy ]
   before_action :set_physician
-  before_action :set_patient, only: [:new, :create]
+  before_action :set_patients, only: [:new, :create]
 
   # GET /appointments or /appointments.json
   def index
@@ -10,7 +10,7 @@ class AppointmentsController < ApplicationController
 
   # GET /appointments/1 or /appointments/1.json
   def show
-    @patient = @appointment.patient.find(params[:id])
+    @patients = @appointment.patient.find(params[:id])
     @physician = @appointment.physician.find(params[:id])
   end
 
@@ -72,7 +72,7 @@ class AppointmentsController < ApplicationController
   end
 
   def set_patient
-    @patient = Patient.all.order(:email) - @physician.patients
+    @patients = Patient.all.order(:email) - @physician.patients
   end
 
   # Only allow a list of trusted parameters through.
