@@ -6,11 +6,35 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
   </head>
 
   <body>
+    <% if current_user %>
+      <p>
+          <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      </p>
+      
+      <p>
+          <%= link_to "Edit Account", edit_user_registration_path %>
+      </p>
+      <br />
+      <% if current_user.avatar.attached? %>
+      <%= image_tag(current_user.avatar, style: "height:140px; width:150px;") %>
+      <% else %>
+      <%= image_tag("/user_default.jpg") %>
+      <% end %>
+    <% else %>
+      <p>
+          <%= link_to "Create Account", new_user_registration_path %>
+      </p>
+      <p>
+          <%= link_to "Sign In", new_user_session_path %>
+      </p>
+    <% end %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

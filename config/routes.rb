@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "physicians#index"
   devise_for :users
   resources :industries
   resources :patients

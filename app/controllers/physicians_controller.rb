@@ -1,5 +1,5 @@
 class PhysiciansController < ApplicationController
-  defore_action :authenticate_user!
+  before_action :authenticate_user!
   before_action :set_physician, only: %i[ show edit update destroy ]
 
   # GET /physicians or /physicians.json
